@@ -1,6 +1,10 @@
-package com.api.feignClinet;
+package com.api;
 
+import com.api.feignClinet.HelloRemote;
+import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConsumerController {
     @Autowired
-    HelloRemote HelloRemote;
+    com.api.feignClinet.HelloRemote HelloRemote;
+
 
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {

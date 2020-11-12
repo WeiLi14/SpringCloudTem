@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author HAND_WEILI 2020/11/04 8:31
  */
 // value指向要去访问的服务名称
-@FeignClient(value="spring-cloud-producer")
+@FeignClient(value="spring-cloud-producer",fallback =HelloRemoteHystrix.class)
 // 需要注册成一个bean
 @Component
 public interface HelloRemote {
